@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Premium Restrained 3D Tilt (ONLY for Desktop Devices)
+    // Subtle 3D Hover Tilt (Only enabled on Desktop to save mobile battery/performance)
     const isDesktop = window.matchMedia('(min-width: 768px)').matches && window.matchMedia('(hover: hover)').matches;
     if (isDesktop) {
         const cards = document.querySelectorAll('.service-card');
@@ -22,12 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
-                // Subtle 3-degree rotation to avoid jitter
-                const rotateX = ((y - centerY) / centerY) * -3; 
-                const rotateY = ((x - centerX) / centerX) * 3;
-                
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                // Subtle 2-degree rotation, ensuring jitter-free smoothness
+                const rotateX = ((y - centerY) / centerY) * -2; 
+                const rotateY = ((x - centerX) / centerX) * 2;
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
             });
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
@@ -35,32 +33,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Smooth Scroll to Contact on Maps link clicked
-    const mapsLinks = document.querySelectorAll('.bottom-bar-btn.maps, .hero-actions .btn-outline');
-    mapsLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const targetId = link.getAttribute('href');
-            if (targetId === '#contact') {
-                e.preventDefault();
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                    
-                    // Close mobile menu if it's open
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                        navToggle.setAttribute('aria-expanded', 'false');
-                        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
+    // Contact Form Submission (Formspree)
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent page reload
+            formStatus.textContent = 'Envoi en cours...';
+            formStatus.className = 'form-status';
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    formStatus.textContent = '✅ Demande envoyée avec succès ! Nous vous recontacterons rapidement.';
+                    formStatus.className = 'form-status success';
+                    contactForm.reset();
+                } else {
+                    formStatus.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer ou appeler directement.';
+                    formStatus.className = 'form-status error';
                 }
+            } catch (error) {
+                formStatus.textContent = '❌ Erreur réseau. Veuillez réessayer plus tard.';
+                formStatus.className = 'form-status error';
             }
         });
-    });
+    }
 
-    // Scroll Reveal Fade-in
+    // Scroll Reveal (Parallax-like Entrance)
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -69,13 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        const animateItems = document.querySelectorAll('.service-card, .gallery-item, .contact-info, .map-container');
+        const animateItems = document.querySelectorAll('.service-card, .gallery-item, .contact-info, .form-container');
         animateItems.forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+            el.style.transform = 'translateY(25px)';
+            el.style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
             observer.observe(el);
         });
     }
