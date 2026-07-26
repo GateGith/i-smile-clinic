@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Navigation Toggle
+    // 1. Mobile Navigation Toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -7,11 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
         navToggle.addEventListener('click', () => {
             const isOpen = navMenu.classList.toggle('active');
             navToggle.setAttribute('aria-expanded', isOpen);
-            navToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            // Update icon
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+                icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+            }
         });
     }
 
-    // Subtle 3D Hover Tilt (Only enabled on Desktop to save mobile battery/performance)
+    // 2. Subtle 3D Hover Tilt for Service Cards (Desktop only)
     const isDesktop = window.matchMedia('(min-width: 768px)').matches && window.matchMedia('(hover: hover)').matches;
     if (isDesktop) {
         const cards = document.querySelectorAll('.service-card');
@@ -22,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                // Subtle 2-degree rotation, ensuring jitter-free smoothness
-                const rotateX = ((y - centerY) / centerY) * -2; 
+                // Very subtle 3-degree rotation for a premium feel
+                const rotateX = ((y - centerY) / centerY) * -2;
                 const rotateY = ((x - centerX) / centerX) * 2;
                 card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
             });
@@ -33,13 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Contact Form Submission (Formspree)
+    // 3. Contact Form Submission (Formspree)
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent page reload
+            e.preventDefault();
+            if (!formStatus) return;
+            
             formStatus.textContent = 'Envoi en cours...';
             formStatus.className = 'form-status';
 
@@ -58,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     formStatus.className = 'form-status success';
                     contactForm.reset();
                 } else {
-                    formStatus.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer ou appeler directement.';
+                    formStatus.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer ou nous appeler directement.';
                     formStatus.className = 'form-status error';
                 }
             } catch (error) {
@@ -68,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Reveal (Parallax-like Entrance)
+    // 4. Scroll Reveal (Parallax-like Entrance)
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -79,11 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
+        // Target elements to animate
         const animateItems = document.querySelectorAll('.service-card, .gallery-item, .contact-info, .form-container');
         animateItems.forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(25px)';
-            el.style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             observer.observe(el);
         });
     }
