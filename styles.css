@@ -206,7 +206,7 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
     transform: scale(1.1) rotate(-5deg);
 }
 /* =============================================================
-   AVIS & TÉMOIGNAGES - Version Développée
+   AVIS & TÉMOIGNAGES - VERSION SOIGNÉE ET PROFESSIONNELLE
    ============================================================= */
 .reviews-grid {
     display: grid;
@@ -216,9 +216,9 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
 
 .review-card {
     background: var(--white);
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
     box-shadow: var(--shadow-soft);
     transition: all 0.4s ease;
 }
@@ -228,18 +228,20 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
 }
 
 .review-header {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
-.reviewer-info {
+/* إصلاح التخطيط الرأسي للصورة الرمزية والاسم */
+.reviewer-header-flex {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-bottom: 10px;
 }
 
 .avatar {
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -249,16 +251,15 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
     font-size: 1.2rem;
     flex-shrink: 0;
 }
+.av-s { background: #1e68b3; }
+.av-o { background: #e96d3d; }
+.av-k { background: #c2542b; }
+.av-z { background: #4b4b4b; }
 
-/* Couleurs personnalisées basées sur les captures Google Maps */
-.av-s { background: #1e68b3; } /* Bleu */
-.av-o { background: #e96d3d; } /* Orange */
-.av-k { background: #c2542b; } /* Marron/Orange foncé */
-.av-z { background: #4b4b4b; } /* Gris foncé (ou image si vous en avez une) */
-
-.reviewer-meta {
+.reviewer-texts {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .reviewer-name {
     font-size: 1.1rem;
@@ -274,14 +275,31 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
     color: #FFB400;
     font-size: 1.1rem;
     letter-spacing: 2px;
-    margin-bottom: 12px;
 }
 
 .review-text {
     font-size: 1rem;
     line-height: 1.7;
     color: var(--grey-text);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    font-weight: 400;
+}
+
+/* زر "LIRE LA SUITE" بشكل نظيف ومرتب */
+.review-text .read-more-btn {
+    display: inline-block;
+    color: var(--burgundy);
+    font-weight: 700;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0 0 0 5px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+.review-text .read-more-btn:hover {
+    color: var(--teal);
 }
 
 .review-footer {
@@ -289,7 +307,7 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
     justify-content: flex-end;
     align-items: center;
     padding-top: 15px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(0,0,0,0.04);
     font-size: 0.9rem;
     color: #555;
 }
