@@ -1,17 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Menu Mobile
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
             const isOpen = navMenu.classList.toggle('active');
-            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-expanded', String(isOpen));
             const icon = navToggle.querySelector('i');
             if (icon) icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
         });
     }
 
-    // 2. تأثير 3D
     const isDesktop = window.matchMedia('(min-width: 768px)').matches;
     if (isDesktop) {
         const cards = document.querySelectorAll('.service-card-3d');
@@ -32,52 +30,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Scroll Reveal
-    if ('IntersectionObserver' in window) {
-        const items = document.querySelectorAll('.service-card-3d, .gallery-item-main, .gallery-item-thumb, .contact-info, .form-container');
-        items.forEach(el => el.classList.add('is-hidden'));
-
-        const observer = new IntersectionObserver((entries) => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealItems = document.querySelectorAll('.service-card-3d, .gallery-item-main, .gallery-item-thumb, .contact-info, .form-container');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealItems.forEach(el => {
+            el.classList.remove('is-hidden');
+            el.classList.add('is-visible');
+        });
+    } else {
+        revealItems.forEach(el => el.classList.add('is-hidden'));
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.remove('is-hidden');
                     entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        items.forEach(el => observer.observe(el));
+        revealItems.forEach(el => observer.observe(el));
     }
 
-    // 4. زر الواتساب العائم
     const waCta = document.getElementById('waCta');
-    let scrollTimeout;
-    if(waCta) {
-        window.addEventListener('scroll', () => {
+    if (waCta) {
+        let hideTimer;
+        const showCta = () => {
             waCta.style.opacity = '1';
             waCta.style.transform = 'translateX(0)';
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                if (window.innerWidth > 768) {
-                    waCta.style.opacity = '0.7';
-                }
-            }, 3000);
-        });
+        };
+        const dimCta = () => {
+            if (window.innerWidth > 768) waCta.style.opacity = '0.7';
+        };
+        showCta();
+        window.addEventListener('scroll', () => {
+            showCta();
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(dimCta, 3000);
+        }, { passive: true });
         waCta.addEventListener('mouseenter', () => waCta.style.opacity = '1');
-        waCta.addEventListener('mouseleave', () => waCta.style.opacity = '0.7');
+        waCta.addEventListener('mouseleave', dimCta);
     }
 
-    // 5. معالج النموذج
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
-    if (form && !form.action.includes('YOUR_FORM_ID')) {
+    if (form && status) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
             status.textContent = 'جاري الإرسال...';
             status.className = 'form-status';
             try {
                 const res = await fetch(form.action, {
-                    method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-                    body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(form)
                 });
                 if (res.ok) {
                     status.textContent = '✅ تم إرسال الطلب بنجاح! سنتصل بك قريباً.';
@@ -87,39 +94,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     status.textContent = '❌ حدث خطأ أثناء الإرسال.';
                     status.className = 'form-status error';
                 }
-            } catch { 
-                status.textContent = '❌ خطأ في الشبكة. يرجى المحاولة لاحقاً.'; 
-                status.className = 'form-status error'; 
+            } catch {
+                status.textContent = '❌ خطأ في الشبكة. يرجى المحاولة لاحقاً.';
+                status.className = 'form-status error';
+            } finally {
+                if (submitBtn) submitBtn.disabled = false;
             }
         });
     }
 
-    // 6. زر "Lire la suite" للتقييمات (نسخة نظيفة)
     const reviewTexts = document.querySelectorAll('.review-text');
     reviewTexts.forEach(text => {
-        let textContent = text.innerText;
-        if (textContent.length > 130) {
-            let shortText = textContent.substring(0, 130) + '...';
-            let moreBtn = document.createElement('button');
+        const full = text.innerText.trim();
+        if (full.length > 130) {
+            const shortText = full.substring(0, 130) + '...';
+            const moreBtn = document.createElement('button');
+            moreBtn.type = 'button';
             moreBtn.innerText = 'Lire la suite';
             moreBtn.className = 'read-more-btn';
-
+            moreBtn.setAttribute('aria-expanded', 'false');
             let isExpanded = false;
+            const render = () => {
+                text.innerText = isExpanded ? full : shortText;
+                text.appendChild(moreBtn);
+                moreBtn.innerText = isExpanded ? 'Réduire' : 'Lire la suite';
+                moreBtn.setAttribute('aria-expanded', String(isExpanded));
+            };
             moreBtn.addEventListener('click', () => {
                 isExpanded = !isExpanded;
-                if (isExpanded) {
-                    text.innerText = textContent;
-                    text.appendChild(moreBtn);
-                    moreBtn.innerText = 'Réduire';
-                } else {
-                    text.innerText = shortText;
-                    text.appendChild(moreBtn);
-                    moreBtn.innerText = 'Lire la suite';
-                }
+                render();
             });
-            
-            text.innerText = shortText;
-            text.appendChild(moreBtn);
+            render();
         }
     });
 });
