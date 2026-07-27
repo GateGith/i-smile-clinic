@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I Smile Dental Clinic | Dentiste 24h/24 Dely Ibrahim</title>
     <meta name="description" content="Clinique dentaire 24h/24 à Dely Ibrahim, Alger. Urgences, Soins, Orthodontie, Implants & Esthétique. Contactez-nous 7j/7 !">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="I Smile Dental Clinic - Dentiste 24h/24 Dely Ibrahim">
     <meta property="og:description" content="Consultations d'urgence 24h/24, Orthodontie adultes & enfants, Implants et Facettes.">
     <meta property="og:image" content="images/reception-arch.webp">
@@ -40,7 +38,7 @@
 
     <header class="header" role="banner">
         <div class="container header-content">
-            <!-- Nouveau Logo avec icône sourire de confiance -->
+            <!-- Nouveau Logo avec graphisme dentaire de confiance -->
             <a href="#top" class="logo-custom">
                 <span class="brand-text">I Smile</span>
                 <svg class="trust-smile" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +66,7 @@
     </header>
 
     <main>
-        <!-- INSTAGRAM REEL - LA PREMIÈRE CHOSE QUI S'AFFICHE -->
+        <!-- SECTION 1 : INSTAGRAM REEL EN PREMIER -->
         <section class="hero-reel" id="top">
             <div class="container reel-container">
                 <iframe src="https://www.instagram.com/reel/DHb9SsIofjK/embed" 
@@ -76,11 +74,10 @@
                         scrolling="no" allowtransparency="true" 
                         allow="autoplay; encrypted-media" 
                         class="instagram-embed"></iframe>
-                <!-- Note pour le propriétaire : S'il possède la vidéo en MP4, il peut remplacer la balise <iframe> par : <video src="VIDEO.mp4" autoplay muted loop playsinline></video> -->
             </div>
         </section>
 
-        <!-- HERO TEXT -->
+        <!-- SECTION 2 : TEXTE DU HERO -->
         <section class="hero-slim">
             <div class="container hero-grid-slim">
                 <div class="hero-text">
@@ -102,7 +99,7 @@
             </div>
         </section>
 
-        <!-- SERVICES (AVEC OUTILS EN FOND) -->
+        <!-- SECTION 3 : SERVICES (Graphismes SVG intégrés sans photos de stock) -->
         <section id="services" class="section-padding bg-stone">
             <div class="container">
                 <div class="section-header">
@@ -111,22 +108,50 @@
                 </div>
                 
                 <div class="services-grid">
-                    <div class="service-card bg-tool-soins">
+                    <div class="service-card">
+                        <!-- Icône SVG Fond : Soins -->
+                        <svg class="bg-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 10 C30 10 20 25 20 45 C20 60 35 75 50 90 C65 75 80 60 80 45 C80 25 70 10 50 10 Z" stroke="#1a3a34" stroke-width="6"/>
+                            <path d="M50 25 L50 65 M30 45 L70 45" stroke="#1a3a34" stroke-width="6" stroke-linecap="round"/>
+                        </svg>
                         <div class="service-number">01</div>
                         <h3>Soins & Urgences</h3>
                         <p>Caries, détartrage, extractions et prise en charge immédiate de vos urgences.</p>
                     </div>
-                    <div class="service-card bg-tool-prothese">
+
+                    <div class="service-card">
+                        <!-- Icône SVG Fond : Prothèses & Implants -->
+                        <svg class="bg-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 10 L50 30" stroke="#1a3a34" stroke-width="8" stroke-linecap="round"/>
+                            <rect x="25" y="30" width="50" height="20" rx="5" stroke="#1a3a34" stroke-width="6"/>
+                            <path d="M35 50 L35 90 M50 50 L50 90 M65 50 L65 90" stroke="#1a3a34" stroke-width="6" stroke-linecap="round"/>
+                        </svg>
                         <div class="service-number">02</div>
                         <h3>Prothèses & Implants</h3>
                         <p>Restauration fonctionnelle et durable pour retrouver le sourire en toute confiance.</p>
                     </div>
-                    <div class="service-card bg-tool-esthetique">
+
+                    <div class="service-card">
+                        <!-- Icône SVG Fond : Esthétique & Facettes -->
+                        <svg class="bg-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 30 L70 50 L50 70 L30 50 Z" stroke="#1a3a34" stroke-width="6" stroke-linejoin="round"/>
+                            <path d="M70 15 L85 30 L70 45 L55 30 Z" stroke="#1a3a34" stroke-width="6" stroke-linejoin="round"/>
+                            <path d="M30 15 L15 30 L30 45 L45 30 Z" stroke="#1a3a34" stroke-width="6" stroke-linejoin="round"/>
+                        </svg>
                         <div class="service-number">03</div>
                         <h3>Esthétique & Facettes</h3>
                         <p>Blanchiment dentaire et facettes en céramique pour un éclat naturel et parfait.</p>
                     </div>
-                    <div class="service-card bg-tool-ortho">
+
+                    <div class="service-card">
+                        <!-- Icône SVG Fond : Orthodontie -->
+                        <svg class="bg-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 30 C10 20, 90 20, 90 30" stroke="#1a3a34" stroke-width="4"/>
+                            <path d="M10 70 C10 80, 90 80, 90 70" stroke="#1a3a34" stroke-width="4"/>
+                            <rect x="30" y="35" width="40" height="30" rx="5" stroke="#1a3a34" stroke-width="6"/>
+                            <circle cx="40" cy="50" r="4" fill="#1a3a34"/>
+                            <circle cx="60" cy="50" r="4" fill="#1a3a34"/>
+                        </svg>
                         <div class="service-number">04</div>
                         <h3>Orthodontie</h3>
                         <p>Suivi personnalisé pour les enfants, les adolescents et les adultes.</p>
@@ -135,14 +160,13 @@
             </div>
         </section>
 
-        <!-- GALLERY -->
+        <!-- SECTION 4 : GALERIE -->
         <section id="gallery" class="section-padding bg-stone-light">
             <div class="container">
                 <div class="section-header text-center">
                     <h2 class="section-title">Découvrez notre <span class="brand-highlight">Espace</span></h2>
                     <p class="section-desc">Un cadre architecturalement pensé pour votre confort.</p>
                 </div>
-                
                 <div class="gallery-grid">
                     <div class="gallery-item photo-large"><img src="images/room-1.webp" alt="Salle de soins" loading="lazy"><div class="caption">Salle de soins · Marbre vert</div></div>
                     <div class="gallery-item photo-med"><img src="images/reception-desk.webp" alt="Réception" loading="lazy"><div class="caption">Accueil · Pierre naturelle</div></div>
@@ -153,11 +177,10 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
+        <!-- SECTION 5 : CONTACT & URGENCE -->
         <section id="contact" class="section-padding bg-marble">
             <div class="container">
                 <div class="section-header text-white">
-                    <!-- Correction de la couleur du texte (maintenant parfaitement lisible en blanc) -->
                     <h2 class="section-title text-white">Urgences & <span class="brand-highlight">Contact</span></h2>
                     <p class="section-desc text-white">Notre équipe est joignable 24h/24 pour vos besoins. Réservez votre rendez-vous en un clic.</p>
                 </div>
@@ -176,24 +199,24 @@
                             <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="contact-link whatsapp-btn"><i class="fab fa-whatsapp"></i> Urgence 24h/24</a>
                         </div>
                         
-                        <!-- Email avec sa couleur officielle -->
+                        <!-- Email avec sa couleur officielle Gmail -->
                         <p class="contact-email"><i class="fas fa-envelope" style="color: #EA4335;"></i> draibi411@gmail.com</p>
                         
                         <div class="social-links-container">
                             <p>Suivez-nous :</p>
                             <div class="social-links">
-                                <a href="https://www.facebook.com/share/1DC7hRPnL6/" target="_blank" rel="noopener" aria-label="Facebook" class="soc-fb"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/i_smile.dental_clinic" target="_blank" rel="noopener" aria-label="Instagram" class="soc-ig"><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.tiktok.com/@ismile3875" target="_blank" rel="noopener" aria-label="TikTok" class="soc-tt"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.facebook.com/share/1DC7hRPnL6/" target="_blank" rel="noopener" class="soc-fb"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/i_smile.dental_clinic" target="_blank" rel="noopener" class="soc-ig"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@ismile3875" target="_blank" rel="noopener" class="soc-tt"><i class="fab fa-tiktok"></i></a>
                             </div>
                         </div>
                         
                         <div class="map-wrapper">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3202.435500873883!2d2.9847528!3d36.7511559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb1000445e2d9%3A0x78a43db8902f2383!2sQX2M%2BGVP%20I%20smile%20dental%20clinic%20(Cabinet%20Dentaire)%2C%20Dely%20Ibrahim!5e0!3m2!1sen!2sdz!4v1698000000000" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3202.435500873883!2d2.9847528!3d36.7511559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb1000445e2d9%3A0x78a43db8902f2383!2sQX2M%2BGVP%20I%20smile%20dental%20clinic%20(Cabinet%20Dentaire)%2C%20Dely%20Ibrahim!5e0!3m2!1sen!2sdz!4v1698000000000" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
 
-                    <!-- Formulaire avec effet premium -->
+                    <!-- Formulaire de contact -->
                     <div class="form-container">
                         <h3>Demande de consultation</h3>
                         <p class="form-desc">Laissez vos coordonnées, nous vous recontacterons rapidement.</p>
@@ -220,7 +243,7 @@
         </section>
     </main>
 
-    <!-- Mobile Sticky Bottom Action Bar -->
+    <!-- Barre sticky mobile -->
     <div class="bottom-bar">
         <a href="tel:+213540992708" class="bottom-bar-btn phone"><i class="fas fa-phone-alt"></i> <span>Appeler</span></a>
         <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="bottom-bar-btn whatsapp"><i class="fab fa-whatsapp"></i> <span>Urgence</span></a>
