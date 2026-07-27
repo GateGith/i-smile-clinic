@@ -169,4 +169,39 @@ a-wa {
     .gallery-item-main:nth-child(4) { grid-column: 6 / 7; grid-row: 1 / 3; }
     .contact-3d-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .bottom-bar { display: none; }
-}ه خ.
+}
+/* =========================================
+   FLOATING WHATSAPP CTA BUTTON 
+   ========================================= */
+.floating-cta-wa {
+    position: fixed;
+    right: 20px;
+    bottom: 90px; /* تم رفعه قليلاً حتى لا يغطي القائمة السفلية */
+    z-index: 9999; /* تأكد أنه فوق الخريطة والنموذج */
+    transform: translateX(120px);
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+.floating-cta-wa a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    background: #25D366; /* لون واتساب الرسمي */
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    color: white;
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.4s ease;
+}
+.floating-cta-wa i {
+    font-size: 1.8rem;
+    margin-bottom: 2px;
+}
+.floating-cta-wa a:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
