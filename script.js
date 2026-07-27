@@ -94,3 +94,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// 4. زر الواتساب العائم (حركة ناعمة عند التصفح)
+const waCta = document.getElementById('waCta');
+let scrollTimeout;
+if(waCta) {
+    // إظهار الزر فوراً عند فتح الصفحة
+    setTimeout(() => {
+        waCta.style.transform = 'translateX(0)';
+        waCta.style.opacity = '1';
+    }, 1000);
+
+    // عند التمرير، يظهر بشكل واضح
+    window.addEventListener('scroll', () => {
+        if(waCta) {
+            waCta.style.transform = 'translateX(0)';
+            waCta.style.opacity = '1';
+            clearTimeout(scrollTimeout);
+            // إذا توقف المستخدم عن التمرير لمدة 3 ثوانٍ، يخفت قليلاً لعدم إزعاج العين
+            scrollTimeout = setTimeout(() => {
+                if (window.innerWidth > 768) {
+                    waCta.style.opacity = '0.7';
+                }
+            }, 3000);
+        }
+    });
+    // عند تحريك الماوس فوقه، يصبح واضحاً
+    if(waCta) {
+        waCta.addEventListener('mouseenter', () => waCta.style.opacity = '1');
+        waCta.addEventListener('mouseleave', () => waCta.style.opacity = '0.7');
+    }
+}
