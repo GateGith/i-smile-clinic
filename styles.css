@@ -132,8 +132,7 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
 .form-status { margin-top: 15px; font-weight: 600; text-align: center; }
 
 /* Floating CTA (تم ضبط الموقع) */
-.floating-في. ج
-a-wa {
+.floating-cta-wa {
     position: fixed; right: 20px; bottom: 90px; z-index: 999;
     transform: translateX(120px); opacity: 0; animation: slideInCTA 1s var(--transition-slow) forwards;
 }
@@ -181,6 +180,7 @@ a-wa {
     transform: translateX(120px);
     opacity: 0;
     transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+}
 .floating-cta-wa a {
     display: flex;
     flex-direction: column;
