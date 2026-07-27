@@ -14,7 +14,6 @@
 
     <header class="header" role="banner">
         <div class="container header-content">
-            <!-- Logo avec smiley de confiance -->
             <a href="#top" class="logo-custom">
                 <span class="brand-text">I Smile</span>
                 <svg class="trust-smile" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,13 +38,11 @@
     </header>
 
     <main>
-        <!-- 1. HERO VIDÉO INSTAGRAM (إخفاء العلامة و تشغيل تلقائي) -->
+        <!-- 1. HERO VIDÉO INSTAGRAM -->
         <section class="hero-video-section" id="top">
             <div class="video-container">
-                <!-- ضع فيديو العيادة بصيغة MP4 هنا -->
                 <video autoplay muted loop playsinline poster="images/reception-arch.webp" class="bg-video">
                     <source src="videos/clinic-reel.mp4" type="video/mp4">
-                    <!--fallback-->
                     <div class="video-fallback"><img src="images/reception-arch.webp" alt="Clinic"></div>
                 </video>
                 <div class="video-overlay"></div>
@@ -65,7 +62,7 @@
             </div>
         </section>
 
-        <!-- 2. SERVICES (مع الأدوات و البطاقات الثلاثية الأبعاد) -->
+        <!-- 2. SERVICES (3D) -->
         <section id="services" class="section-padding bg-stone">
             <div class="container">
                 <div class="section-header">
@@ -74,12 +71,8 @@
                 </div>
                 
                 <div class="services-3d-grid">
-                    <!-- Service 01 -->
                     <div class="service-card-3d">
-                        <div class="tool-icons">
-                            <i class="fas fa-search"></i>
-                            <i class="fas fa-microscope"></i>
-                        </div>
+                        <div class="tool-icons"><i class="fas fa-search"></i><i class="fas fa-microscope"></i></div>
                         <div class="service-content">
                             <span class="service-number">01</span>
                             <h3>Soins & Urgences</h3>
@@ -87,13 +80,8 @@
                             <a href="#contact" class="btn-link">Prendre rendez-vous <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-
-                    <!-- Service 02 -->
                     <div class="service-card-3d">
-                        <div class="tool-icons">
-                            <i class="fas fa-screwdriver-wrench"></i>
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
+                        <div class="tool-icons"><i class="fas fa-screwdriver-wrench"></i><i class="fas fa-shield-alt"></i></div>
                         <div class="service-content">
                             <span class="service-number">02</span>
                             <h3>Prothèses & Implants</h3>
@@ -101,13 +89,8 @@
                             <a href="#contact" class="btn-link">Prendre rendez-vous <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-
-                    <!-- Service 03 -->
                     <div class="service-card-3d">
-                        <div class="tool-icons">
-                            <i class="fas fa-wand-magic-sparkles"></i>
-                            <i class="fas fa-palette"></i>
-                        </div>
+                        <div class="tool-icons"><i class="fas fa-wand-magic-sparkles"></i><i class="fas fa-palette"></i></div>
                         <div class="service-content">
                             <span class="service-number">03</span>
                             <h3>Esthétique & Facettes</h3>
@@ -115,13 +98,8 @@
                             <a href="#contact" class="btn-link">Prendre rendez-vous <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-
-                    <!-- Service 04 -->
                     <div class="service-card-3d">
-                        <div class="tool-icons">
-                            <i class="fas fa-arrows-spin"></i>
-                            <i class="fas fa-child"></i>
-                        </div>
+                        <div class="tool-icons"><i class="fas fa-arrows-spin"></i><i class="fas fa-child"></i></div>
                         <div class="service-content">
                             <span class="service-number">04</span>
                             <h3>Orthodontie</h3>
@@ -133,7 +111,7 @@
             </div>
         </section>
 
-        <!-- 3. GALERIE (معمارية و احترافية) -->
+        <!-- 3. GALERIE -->
         <section id="gallery" class="section-padding bg-white">
             <div class="container">
                 <div class="section-header text-center">
@@ -148,7 +126,7 @@
             </div>
         </section>
 
-        <!-- 4. CONTACT & LOCALISATION -->
+        <!-- 4. CONTACT & LOCALISATION (الجزء الذي تم تحسينه) -->
         <section id="contact" class="section-padding bg-marble">
             <div class="container">
                 <div class="section-header text-white">
@@ -156,18 +134,23 @@
                 </div>
                 
                 <div class="contact-3d-grid">
+                    <!-- تم تعديل الالوان هنا لتصبح بيضاء ومقروءة -->
                     <div class="contact-info text-white">
                         <h3>Coordonnées directes</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> <strong>Dely Ibrahim - Alger</strong></p>
-                        <p><i class="fas fa-clock"></i> <strong>Consultations :</strong> Lun - Ven 08h00 - 18h00</p>
-                        <p><i class="fas fa-clock text-highlight"></i> <strong>Urgences :</strong> 24h/24</p>
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Dely Ibrahim - Alger</strong></p>
+                            <p><i class="fas fa-clock"></i> <strong>Consultations :</strong> Lun - Ven 08h00 - 18h00</p>
+                            <p><i class="fas fa-clock text-highlight"></i> <strong>Urgences :</strong> 24h/24</p>
+                        </div>
+                        
                         <div class="contact-buttons">
+                            <!-- زر الهاتف أصبح شفاف بحواف بيضاء -->
                             <a href="tel:+213540992708" class="contact-link phone-btn"><i class="fas fa-phone-alt"></i> 05 40 99 27 08</a>
                             <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="contact-link whatsapp-btn"><i class="fab fa-whatsapp"></i> 05 62 52 88 06</a>
                         </div>
+                        
                         <p class="contact-email"><i class="fas fa-envelope" style="color: #EA4335;"></i> draibi411@gmail.com</p>
                         
-                        <!-- أيقونات التواصل (ألوان العلامات الحقيقية) -->
                         <div class="social-links-container">
                             <p>Nos Réseaux :</p>
                             <div class="social-links">
@@ -190,6 +173,7 @@
                             <div class="form-group"><input type="tel" name="phone" placeholder="Numéro de téléphone" required></div>
                             <div class="form-group"><input type="email" name="email" placeholder="Email (optionnel)"></div>
                             <div class="form-group"><textarea name="message" rows="2" placeholder="Service souhaité"></textarea></div>
+                            <!-- تم تثبيت لون الزر الأساسي ليكون برغندي -->
                             <button type="submit" class="btn btn-primary w-full">Envoyer la demande</button>
                             <div id="formStatus" class="form-status"></div>
                         </form>
@@ -199,7 +183,7 @@
         </section>
     </main>
 
-    <!-- زر واتساب عائم يتحرك بتساهل (Floating Sticky CTA) -->
+    <!-- زر واتساب عائم (تم ضبط موقعه) -->
     <div class="floating-cta-wa" id="waCta">
         <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank">
             <i class="fab fa-whatsapp"></i>
@@ -207,7 +191,6 @@
         </a>
     </div>
 
-    <!-- شريط اتصال سفلي للهواتف -->
     <div class="bottom-bar">
         <a href="tel:+213540992708" class="bottom-bar-btn phone"><i class="fas fa-phone-alt"></i> <span>Appeler</span></a>
         <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="bottom-bar-btn whatsapp"><i class="fab fa-whatsapp"></i> <span>Urgence</span></a>
