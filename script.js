@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Reveal Scroll (No failures if JS breaks)
+    // Scroll Reveal robuste
     if ('IntersectionObserver' in window) {
         const revealItems = document.querySelectorAll('.service-card, .gallery-item, .contact-info, .form-container');
         revealItems.forEach(el => el.classList.add('is-hidden'));
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealItems.forEach(el => observer.observe(el));
     }
 
-    // Formspree logic
+    // Gestion Formulaire
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     if (contactForm && !contactForm.action.includes('YOUR_FORM_ID')) {
