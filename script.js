@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Révélation au scroll (sans échec si JS crash)
+    // Révélation éditoriale au scroll
     if ('IntersectionObserver' in window) {
-        const items = document.querySelectorAll('.service-card-blueprint, .gallery-item, .contact-info, .form-container');
+        const items = document.querySelectorAll('.service-card-geo, .gallery-item, .contact-info, .form-container');
         items.forEach(el => el.classList.add('is-hidden'));
 
         const observer = new IntersectionObserver((entries) => {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(el => observer.observe(el));
     }
 
-    // Formulaire (Remplacez l'ID dans le HTML)
+    // Formulaire
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
     if (form && !form.action.includes('YOUR_FORM_ID')) {
@@ -48,7 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     status.textContent = '❌ Erreur.';
                     status.className = 'form-status error';
                 }
-            } catch { status.textContent = '❌ Erreur réseau.'; status.className = 'form-status error'; }
+            } catch { 
+                status.textContent = '❌ Erreur réseau.'; 
+                status.className = 'form-status error'; 
+            }
         });
     }
 });
