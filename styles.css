@@ -36,7 +36,7 @@ a { text-decoration: none; color: inherit; }
 
 .brand-text { font-size: 1.8rem; font-weight: 800; color: var(--teal); letter-spacing: -1px; }
 
-.trust-smile { width: 60px; animation: smilePulse 4s ease-in-out infinite; }
+.trust-tooth { width: 62px; height: 62px; flex-shrink: 0; animation: smilePulse 4s ease-in-out infinite; }
 
 @keyframes smilePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
