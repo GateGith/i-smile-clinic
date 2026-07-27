@@ -40,8 +40,14 @@
 
     <header class="header" role="banner">
         <div class="container header-content">
-            <a href="#top" class="logo">
-                <img src="images/i-smile-logo.png" alt="I Smile Dental Clinic Logo" width="180" height="auto" loading="eager">
+            <!-- Nouveau Logo avec icône sourire de confiance -->
+            <a href="#top" class="logo-custom">
+                <span class="brand-text">I Smile</span>
+                <svg class="trust-smile" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 15 C10 25, 90 25, 90 15" stroke="#2bc49b" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M10 15 C10 5, 30 5, 50 15 C50 15, 70 5, 90 15" stroke="#5f1f3c" stroke-width="4" stroke-linecap="round" fill="transparent"/>
+                </svg>
+                <span class="location-text">Dely Ibrahim</span>
             </a>
             
             <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menu de navigation">
@@ -62,8 +68,21 @@
     </header>
 
     <main>
-        <section class="hero" id="top">
-            <div class="container hero-grid">
+        <!-- INSTAGRAM REEL - LA PREMIÈRE CHOSE QUI S'AFFICHE -->
+        <section class="hero-reel" id="top">
+            <div class="container reel-container">
+                <iframe src="https://www.instagram.com/reel/DHb9SsIofjK/embed" 
+                        width="100%" height="100%" frameborder="0" 
+                        scrolling="no" allowtransparency="true" 
+                        allow="autoplay; encrypted-media" 
+                        class="instagram-embed"></iframe>
+                <!-- Note pour le propriétaire : S'il possède la vidéo en MP4, il peut remplacer la balise <iframe> par : <video src="VIDEO.mp4" autoplay muted loop playsinline></video> -->
+            </div>
+        </section>
+
+        <!-- HERO TEXT -->
+        <section class="hero-slim">
+            <div class="container hero-grid-slim">
                 <div class="hero-text">
                     <span class="hero-badge"><i class="fas fa-bolt"></i> Urgences 24h/24 - 7j/7</span>
                     <h1>
@@ -77,13 +96,13 @@
                         <a href="https://maps.google.com/maps?ll=36.751156,2.984753&z=15&t=m&hl=en-US&gl=US&mapclient=embed&cid=8693141043634185091" target="_blank" class="btn btn-outline"><i class="fas fa-location-dot"></i> Itinéraire</a>
                     </div>
                 </div>
-                
-                <div class="hero-visual">
-                    <img src="images/reception-arch.webp" alt="Hall d'accueil avec arche en pierre de la clinique I Smile" loading="eager" width="800" height="600">
+                <div class="hero-visual-slim">
+                    <img src="images/reception-arch.webp" alt="Hall d'accueil avec arche en pierre de la clinique I Smile" loading="lazy">
                 </div>
             </div>
         </section>
 
+        <!-- SERVICES (AVEC OUTILS EN FOND) -->
         <section id="services" class="section-padding bg-stone">
             <div class="container">
                 <div class="section-header">
@@ -92,22 +111,22 @@
                 </div>
                 
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card bg-tool-soins">
                         <div class="service-number">01</div>
                         <h3>Soins & Urgences</h3>
-                        <p>Caries, détartrage, extractions et prise en charge immédiate de vos urgences 24h/24.</p>
+                        <p>Caries, détartrage, extractions et prise en charge immédiate de vos urgences.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card bg-tool-prothese">
                         <div class="service-number">02</div>
                         <h3>Prothèses & Implants</h3>
                         <p>Restauration fonctionnelle et durable pour retrouver le sourire en toute confiance.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card bg-tool-esthetique">
                         <div class="service-number">03</div>
                         <h3>Esthétique & Facettes</h3>
                         <p>Blanchiment dentaire et facettes en céramique pour un éclat naturel et parfait.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card bg-tool-ortho">
                         <div class="service-number">04</div>
                         <h3>Orthodontie</h3>
                         <p>Suivi personnalisé pour les enfants, les adolescents et les adultes.</p>
@@ -116,6 +135,7 @@
             </div>
         </section>
 
+        <!-- GALLERY -->
         <section id="gallery" class="section-padding bg-stone-light">
             <div class="container">
                 <div class="section-header text-center">
@@ -124,74 +144,61 @@
                 </div>
                 
                 <div class="gallery-grid">
-                    <div class="gallery-item photo-large">
-                        <img src="images/room-1.webp" alt="Salle de soins haut de gamme avec sol en marbre vert" loading="lazy">
-                        <div class="caption">Salle de soins · Marbre vert</div>
-                    </div>
-                    <div class="gallery-item photo-med">
-                        <img src="images/reception-desk.webp" alt="Réception en pierre beige de la clinique I Smile" loading="lazy">
-                        <div class="caption">Accueil · Pierre naturelle</div>
-                    </div>
-                    <div class="gallery-item photo-med">
-                        <img src="images/waiting-area.webp" alt="Salle d'attente moderne et épurée de la clinique" loading="lazy">
-                        <div class="caption">Salle d'attente · Épure & calme</div>
-                    </div>
-                    <div class="gallery-item photo-large">
-                        <img src="images/room-2.webp" alt="Équipement dentaire professionnel" loading="lazy">
-                        <div class="caption">Équipement · Précision & qualité</div>
-                    </div>
-                    <div class="gallery-item photo-med">
-                        <img src="images/wall-logo.webp" alt="Logo I Smile sur le mur blanc de l'accueil" loading="lazy">
-                        <div class="caption">I Smile · Identité de la clinique</div>
-                    </div>
+                    <div class="gallery-item photo-large"><img src="images/room-1.webp" alt="Salle de soins" loading="lazy"><div class="caption">Salle de soins · Marbre vert</div></div>
+                    <div class="gallery-item photo-med"><img src="images/reception-desk.webp" alt="Réception" loading="lazy"><div class="caption">Accueil · Pierre naturelle</div></div>
+                    <div class="gallery-item photo-med"><img src="images/waiting-area.webp" alt="Salle d'attente" loading="lazy"><div class="caption">Salle d'attente · Épure & calme</div></div>
+                    <div class="gallery-item photo-large"><img src="images/room-2.webp" alt="Équipement" loading="lazy"><div class="caption">Équipement · Précision & qualité</div></div>
+                    <div class="gallery-item photo-med"><img src="images/wall-logo.webp" alt="Logo" loading="lazy"><div class="caption">I Smile · Identité de la clinique</div></div>
                 </div>
             </div>
         </section>
 
+        <!-- CONTACT SECTION -->
         <section id="contact" class="section-padding bg-marble">
             <div class="container">
                 <div class="section-header text-white">
-                    <h2 class="section-title">Urgences & <span class="brand-highlight">Contact</span></h2>
-                    <p class="section-desc">Notre équipe est joignable 24h/24 pour vos besoins. Réservez votre rendez-vous en un clic.</p>
+                    <!-- Correction de la couleur du texte (maintenant parfaitement lisible en blanc) -->
+                    <h2 class="section-title text-white">Urgences & <span class="brand-highlight">Contact</span></h2>
+                    <p class="section-desc text-white">Notre équipe est joignable 24h/24 pour vos besoins. Réservez votre rendez-vous en un clic.</p>
                 </div>
                 
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h3>Informations de contact</h3>
-                        
                         <div class="contact-details">
                             <p><i class="fas fa-map-marker-alt"></i> <strong>Dely Ibrahim - Alger</strong></p>
-                            <p><i class="fas fa-clock"></i> <strong>Consultations :</strong> 24h/24</p>
+                            <p><i class="fas fa-clock"></i> <strong>Consultations :</strong> Lun - Ven 08h00 - 18h00</p>
                             <p><i class="fas fa-clock text-highlight"></i> <strong>Urgences :</strong> Contact 24h/24</p>
                         </div>
                         
                         <div class="contact-buttons">
                             <a href="tel:+213540992708" class="contact-link phone-btn"><i class="fas fa-phone-alt"></i> 05 40 99 27 08</a>
-                            <a href="https://wa.me/213562528806?text=Bonjour%20I%20Smile%20Dental%20Clinic%2C%20j'ai%20une%20urgence%20dentaire%20!" target="_blank" class="contact-link whatsapp-btn"><i class="fab fa-whatsapp"></i> Urgence 24h/24</a>
+                            <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="contact-link whatsapp-btn"><i class="fab fa-whatsapp"></i> Urgence 24h/24</a>
                         </div>
                         
-                        <p class="contact-email"><i class="fas fa-envelope"></i> draibi411@gmail.com</p>
+                        <!-- Email avec sa couleur officielle -->
+                        <p class="contact-email"><i class="fas fa-envelope" style="color: #EA4335;"></i> draibi411@gmail.com</p>
                         
                         <div class="social-links-container">
                             <p>Suivez-nous :</p>
                             <div class="social-links">
-                                <a href="https://www.facebook.com/share/1DC7hRPnL6/" target="_blank" rel="noopener" aria-label="Facebook I Smile" class="soc-fb"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/i_smile.dental_clinic" target="_blank" rel="noopener" aria-label="Instagram I Smile" class="soc-ig"><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.tiktok.com/@ismile3875" target="_blank" rel="noopener" aria-label="TikTok I Smile" class="soc-tt"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.facebook.com/share/1DC7hRPnL6/" target="_blank" rel="noopener" aria-label="Facebook" class="soc-fb"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/i_smile.dental_clinic" target="_blank" rel="noopener" aria-label="Instagram" class="soc-ig"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@ismile3875" target="_blank" rel="noopener" aria-label="TikTok" class="soc-tt"><i class="fab fa-tiktok"></i></a>
                             </div>
                         </div>
                         
                         <div class="map-wrapper">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3202.435500873883!2d2.9847528!3d36.7511559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb1000445e2d9%3A0x78a43db8902f2383!2sQX2M%2BGVP%20I%20smile%20dental%20clinic%20(Cabinet%20Dentaire)%2C%20Dely%20Ibrahim!5e0!3m2!1sen!2sdz!4v1698000000000" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation de I Smile Dental Clinic"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3202.435500873883!2d2.9847528!3d36.7511559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb1000445e2d9%3A0x78a43db8902f2383!2sQX2M%2BGVP%20I%20smile%20dental%20clinic%20(Cabinet%20Dentaire)%2C%20Dely%20Ibrahim!5e0!3m2!1sen!2sdz!4v1698000000000" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation"></iframe>
                         </div>
                     </div>
 
-                    <!-- Demande de consultation Form -->
+                    <!-- Formulaire avec effet premium -->
                     <div class="form-container">
                         <h3>Demande de consultation</h3>
                         <p class="form-desc">Laissez vos coordonnées, nous vous recontacterons rapidement.</p>
                         
-                        <form action="https://formspree.io/f/xqerweyb" method="POST" id="contactForm">
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
                             <div class="form-group">
                                 <input type="text" name="name" placeholder="Nom et prénom" required>
                             </div>
@@ -209,18 +216,15 @@
                         </form>
                     </div>
                 </div>
-
-                <div class="footer-bottom">
-                    <p>&copy; 2026 I Smile Dental Clinic - Dentiste 24h/24 Dely Ibrahim, Alger.</p>
-                </div>
             </div>
         </section>
     </main>
 
+    <!-- Mobile Sticky Bottom Action Bar -->
     <div class="bottom-bar">
-        <a href="tel:+213540992708" class="bottom-bar-btn phone" aria-label="Appeler le cabinet"><i class="fas fa-phone-alt"></i> <span>Appeler</span></a>
-        <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="bottom-bar-btn whatsapp" aria-label="Urgence 24h/24"><i class="fab fa-whatsapp"></i> <span>Urgence</span></a>
-        <a href="https://maps.google.com/maps?ll=36.751156,2.984753&z=15the t=m&hl=en-US&gl=US&mapclient=embed&cid=8693141043634185091" target="_blank" class="bottom-bar-btn maps" aria-label="Voir la localisation"><i class="fas fa-location-dot"></i> <span>Itinéraire</span></a>
+        <a href="tel:+213540992708" class="bottom-bar-btn phone"><i class="fas fa-phone-alt"></i> <span>Appeler</span></a>
+        <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="bottom-bar-btn whatsapp"><i class="fab fa-whatsapp"></i> <span>Urgence</span></a>
+        <a href="https://maps.google.com/maps?ll=36.751156,2.984753&z=15&t=m&hl=en-US&gl=US&mapclient=embed&cid=8693141043634185091" target="_blank" class="bottom-bar-btn maps"><i class="fas fa-location-dot"></i> <span>Itinéraire</span></a>
     </div>
 
     <script src="script.js"></script>
