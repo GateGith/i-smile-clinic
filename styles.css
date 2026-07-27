@@ -317,7 +317,20 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
 
 @media (min-width: 768px) {
     .reviews-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-}/* =============================================================
+}
+/* =============================================================
+   AVIS & TÉMOIGNAGES - ARRIÈRE-PLAN PREMIUM
+   ============================================================= */
+.bg-premium-marble {
+    /* Base très légèrement grisée pour éviter le blanc pur */
+    background-color: #fcfdfd; 
+    /* Texture de poussière de marbre (très subtile) + halo lumineux teal au centre */
+    background-image: 
+        radial-gradient(ellipse at 50% 25%, rgba(43, 196, 155, 0.04) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    position: relative;
+}
+/* =============================================================
    GALERIE CINÉMATIQUE (خلفية اسطورية احترافية)
    ============================================================= */
 .bg-cinematic {
