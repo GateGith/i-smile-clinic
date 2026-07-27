@@ -23,7 +23,7 @@
                 <span class="location-text">Dely Ibrahim</span>
             </a>
             
-            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMenu"><i class="fas fa-bars"></i></button>
             <nav class="nav-menu" id="navMenu">
                 <ul>
                     <li><a href="#services">Services</a></li>
@@ -41,7 +41,7 @@
         <!-- 1. HERO VIDÉO INSTAGRAM -->
         <section class="hero-video-section" id="top">
             <div class="video-container">
-                <video autoplay muted loop playsinline poster="images/reception-arch.webp" class="bg-video">
+                <video autoplay muted loop playsinline poster="images/reception-arch.webp" class="bg-video" aria-label="Présentation de la clinique I Smile">
                     <source src="videos/clinic-reel.mp4" type="video/mp4">
                     <div class="video-fallback"><img src="images/reception-arch.webp" alt="Clinic"></div>
                 </video>
@@ -55,8 +55,8 @@
                     </h1>
                     <p class="hero-subtitle text-white">Soins d'excellence, orthodontie & esthétique. Prise en charge immédiate.</p>
                     <div class="hero-actions">
-                        <a href="#contact" class="btn btn-primary">Urgence 24h/24</a>
-                        <a href="https://maps.google.com/maps?ll=36.751156,2.984753&z=15&t=m&hl=en-US&gl=US&mapclient=embed&cid=8693141043634185091" target="_blank" class="btn btn-outline-light">Itinéraire</a>
+                        <a href="tel:+213540992708" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Appeler maintenant</a>
+                        <a href="https://wa.me/213562528806?text=Bonjour%20I%20Smile%2C%20j%27ai%20une%20urgence%20dentaire." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -110,131 +110,129 @@
                 </div>
             </div>
         </section>
-<!-- 3. GALERIE (خلفية سينمائية احترافية) -->
-<section id="gallery" class="section-padding bg-cinematic">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title text-white">Découvrez notre <span class="brand-highlight">Espace</span></h2>
-            <p class="section-desc text-white opacity-70">Un cabinet pensé pour allier confort, esthétique et performance.</p>
-        </div>
-        
-        <div class="gallery-3d-grid">
-            <!-- 1 -->
-            <div class="gallery-item-main">
-                <img src="images/room-1.webp" alt="Salle de soins marbre vert" loading="lazy">
-                <div class="caption">Salle de soins · Marbre vert</div>
+        <!-- 3. GALERIE (خلفية سينمائية احترافية) -->
+        <section id="gallery" class="section-padding bg-cinematic">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title text-white">Découvrez notre <span class="brand-highlight">Espace</span></h2>
+                    <p class="section-desc text-white opacity-70">Un cabinet pensé pour allier confort, esthétique et performance.</p>
+                </div>
+                
+                <div class="gallery-3d-grid">
+                    <!-- 1 -->
+                    <div class="gallery-item-main">
+                        <img src="images/room-1.webp" alt="Salle de soins marbre vert" loading="lazy">
+                        <div class="caption">Salle de soins · Marbre vert</div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="gallery-item-thumb">
+                        <img src="images/reception-desk.webp" alt="Réception en pierre" loading="lazy">
+                        <div class="caption">Réception · Pierre naturelle</div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="gallery-item-thumb">
+                        <img src="images/waiting-area.webp" alt="Salle d'attente" loading="lazy">
+                        <div class="caption">Salle d'attente · Calme</div>
+                    </div>
+                    <!-- 4 -->
+                    <div class="gallery-item-main">
+                        <img src="images/room-2.webp" alt="Équipement dentaire" loading="lazy">
+                        <div class="caption">Équipement · Précision</div>
+                    </div>
+                </div>
             </div>
-            <!-- 2 -->
-            <div class="gallery-item-thumb">
-                <img src="images/reception-desk.webp" alt="Réception en pierre" loading="lazy">
-                <div class="caption">Réception · Pierre naturelle</div>
-            </div>
-            <!-- 3 -->
-            <div class="gallery-item-thumb">
-                <img src="images/waiting-area.webp" alt="Salle d'attente" loading="lazy">
-                <div class="caption">Salle d'attente · Calme</div>
-            </div>
-            <!-- 4 -->
-            <div class="gallery-item-main">
-                <img src="images/room-2.webp" alt="Équipement dentaire" loading="lazy">
-                <div class="caption">Équipement · Précision</div>
-            </div>
-        </div>
-    </div>
-</section>
-
         </section>
-<!-- 4. AVIS & TÉMOIGNAGES (Version soignée) -->
-<section id="reviews" class="section-padding bg-white">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2 class="section-title">Ce que disent nos <span class="brand-highlight">Patients</span></h2>
-            <p class="section-desc">Des soins de qualité qui font la différence au quotidien.</p>
-        </div>
-        
-        <div class="reviews-grid">
-            <!-- Avis 1 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <!-- Avatar + Name & Date inside a single flex row -->
-                    <div class="reviewer-header-flex">
-                        <span class="avatar av-s">S</span>
-                        <div class="reviewer-texts">
-                            <span class="reviewer-name">Souad Bhr</span>
-                            <span class="review-date">Il y a 6 mois</span>
+        <!-- 4. AVIS & TÉMOIGNAGES (Version soignée) -->
+        <section id="reviews" class="section-padding bg-white">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Ce que disent nos <span class="brand-highlight">Patients</span></h2>
+                    <p class="section-desc">Des soins de qualité qui font la différence au quotidien.</p>
+                </div>
+                
+                <div class="reviews-grid">
+                    <!-- Avis 1 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <!-- Avatar + Name & Date inside a single flex row -->
+                            <div class="reviewer-header-flex">
+                                <span class="avatar av-s">S</span>
+                                <div class="reviewer-texts">
+                                    <span class="reviewer-name">Souad Bhr</span>
+                                    <span class="review-date">Il y a 6 mois</span>
+                                </div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <div class="review-text">
+                            Je tiens à remercier sincèrement le Dr. Aibi Saad pour la qualité de ses soins. Je suis venue le voir jeudi dernier, sans savoir qu'il ne travaille pas le week-end. C'est un dentiste très compétent, à l'écoute et attentionné.
+                        </div>
+                        <div class="review-footer">
+                            <span class="like-count"><i class="far fa-heart"></i> 4</span>
                         </div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="review-text">
-                    Je tiens à remercier sincèrement le Dr. Aibi Saad pour la qualité de ses soins. Je suis venue le voir jeudi dernier, sans savoir qu'il ne travaille pas le week-end. C'est un dentiste très compétent, à l'écoute et attentionné.
-                </div>
-                <div class="review-footer">
-                    <span class="like-count"><i class="far fa-heart"></i> 4</span>
-                </div>
-            </div>
 
-            <!-- Avis 2 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer-header-flex">
-                        <span class="avatar av-o">O</span>
-                        <div class="reviewer-texts">
-                            <span class="reviewer-name">Oussama Oussama</span>
-                            <span class="review-date">Il y a 11 mois</span>
+                    <!-- Avis 2 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-header-flex">
+                                <span class="avatar av-o">O</span>
+                                <div class="reviewer-texts">
+                                    <span class="reviewer-name">Oussama Oussama</span>
+                                    <span class="review-date">Il y a 11 mois</span>
+                                </div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <div class="review-text">
+                            Je remercie sincèrement votre cabinet pour la qualité exceptionnelle des soins prodigués. La compétence de vos praticiens, alliée à une approche humaine et attentive, reflète un haut niveau de professionnalisme.
+                        </div>
+                        <div class="review-footer">
+                            <span class="like-count"><i class="far fa-heart"></i> 1</span>
                         </div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="review-text">
-                    Je remercie sincèrement votre cabinet pour la qualité exceptionnelle des soins prodigués. La compétence de vos praticiens, alliée à une approche humaine et attentive, reflète un haut niveau de professionnalisme.
-                </div>
-                <div class="review-footer">
-                    <span class="like-count"><i class="far fa-heart"></i> 1</span>
-                </div>
-            </div>
 
-            <!-- Avis 3 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer-header-flex">
-                        <span class="avatar av-k">K</span>
-                        <div class="reviewer-texts">
-                            <span class="reviewer-name">Konig Phone16</span>
-                            <span class="review-date">Il y a 11 mois</span>
+                    <!-- Avis 3 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-header-flex">
+                                <span class="avatar av-k">K</span>
+                                <div class="reviewer-texts">
+                                    <span class="reviewer-name">Konig Phone16</span>
+                                    <span class="review-date">Il y a 11 mois</span>
+                                </div>
+                            </div>
+                            <div class="stars">★★★★★</div>
                         </div>
+                        <div class="review-text">
+                            Je suis reconnaissante envers votre cabinet pour la qualité des soins reçus et l'attention portée aux patients. L'équipe est disponible et très professionnelle.
+                        </div>
+                        <div class="review-footer"></div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="review-text">
-                    Je suis reconnaissante envers votre cabinet pour la qualité des soins reçus et l'attention portée aux patients. L'équipe est disponible et très professionnelle.
-                </div>
-                <div class="review-footer"></div>
-            </div>
 
-            <!-- Avis 4 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer-header-flex">
-                        <span class="avatar av-z">Z</span>
-                        <div class="reviewer-texts">
-                            <span class="reviewer-name">zaidi sara</span>
-                            <span class="review-date">Il y a 1 mois</span>
+                    <!-- Avis 4 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-header-flex">
+                                <span class="avatar av-z">Z</span>
+                                <div class="reviewer-texts">
+                                    <span class="reviewer-name">zaidi sara</span>
+                                    <span class="review-date">Il y a 1 mois</span>
+                                </div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <div class="review-text">
+                            Un immense merci pour votre dévouement, votre travail minutieux et la qualité exceptionnelle des soins prodigués. C'est un véritable plaisir d'avoir été prise en charge par un praticien aussi compétent qu'humain. J'ai été mise en confiance à chaque étape.
+                        </div>
+                        <div class="review-footer">
+                            <span class="like-count"><i class="far fa-heart"></i> 1</span>
                         </div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="review-text">
-                    Un immense merci pour votre dévouement, votre travail minutieux et la qualité exceptionnelle des soins prodigués. C'est un véritable plaisir d'avoir été prise en charge par un praticien aussi compétent qu'humain. J'ai été mise en confiance à chaque étape.
-                </div>
-                <div class="review-footer">
-                    <span class="like-count"><i class="far fa-heart"></i> 1</span>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- 5. CONTACT & LOCALISATION -->
+        </section>
+        <!-- 5. CONTACT & LOCALISATION -->
         <section id="contact" class="section-padding bg-contact-premium">
             <div class="container">
                 <div class="section-header text-white">
@@ -254,7 +252,7 @@
                         <div class="contact-buttons">
                             <!-- زر الهاتف أصبح شفاف بحواف بيضاء -->
                             <a href="tel:+213540992708" class="contact-link phone-btn"><i class="fas fa-phone-alt"></i> 05 40 99 27 08</a>
-                            <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="contact-link whatsapp-btn"><i class="fab fa-whatsapp"></i> 05 62 52 88 06</a>
+                            <a href="https://wa.me/213562528806?text=Bonjour%20I%20Smile%2C%20j%27ai%20une%20urgence%20dentaire." target="_blank" rel="noopener noreferrer" class="contact-link whatsapp-btn"><i class="fab fa-whatsapp"></i> 05 62 52 88 06</a>
                         </div>
                         
                         <p class="contact-email"><i class="fas fa-envelope" style="color: #EA4335;"></i> draibi411@gmail.com</p>
@@ -262,9 +260,9 @@
                         <div class="social-links-container">
                             <p>Nos Réseaux :</p>
                             <div class="social-links">
-                                <a href="https://www.facebook.com/share/1DC7hRPnL6/" target="_blank" class="soc-fb"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/i_smile.dental_clinic" target="_blank" class="soc-ig"><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.tiktok.com/@ismile3875" target="_blank" class="soc-tt"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.facebook.com/share/1DC7hRPnL6/" target="_blank" rel="noopener noreferrer" class="soc-fb"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/i_smile.dental_clinic" target="_blank" rel="noopener noreferrer" class="soc-ig"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@ismile3875" target="_blank" rel="noopener noreferrer" class="soc-tt"><i class="fab fa-tiktok"></i></a>
                             </div>
                         </div>
                         
@@ -280,7 +278,7 @@
                             <div class="form-group"><input type="text" name="name" placeholder="Nom et prénom" required></div>
                             <div class="form-group"><input type="tel" name="phone" placeholder="Numéro de téléphone" required></div>
                             <div class="form-group"><input type="email" name="email" placeholder="Email (optionnel)"></div>
-                            <div class="form-group"><textarea name="message" rows="2" placeholder="Service souhaité"></textarea></div>
+                            <div class="form-group"><textarea name="message" rows="3" placeholder="Motif du rendez-vous (sans informations médicales sensibles)"></textarea></div>
                             <!-- تم تثبيت لون الزر الأساسي ليكون برغندي -->
                             <button type="submit" class="btn btn-primary w-full">Envoyer la demande</button>
                             <div id="formStatus" class="form-status"></div>
@@ -293,7 +291,7 @@
 
     <!-- زر واتساب عائم (تم ضبط موقعه) -->
     <div class="floating-cta-wa" id="waCta">
-        <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank">
+        <a href="https://wa.me/213562528806?text=Bonjour%20I%20Smile%2C%20j%27ai%20une%20urgence%20dentaire." target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
             <span>Réservez</span>
         </a>
@@ -301,17 +299,10 @@
 
     <div class="bottom-bar">
         <a href="tel:+213540992708" class="bottom-bar-btn phone"><i class="fas fa-phone-alt"></i> <span>Appeler</span></a>
-        <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank" class="bottom-bar-btn whatsapp"><i class="fab fa-whatsapp"></i> <span>Urgence</span></a>
-        <a href="https://maps.google.com/maps?ll=36.751156,2.984753&z=15&t=m&hl=en-US&gl=US&mapclient=embed&cid=8693141043634185091" target="_blank" class="bottom-bar-btn maps"><i class="fas fa-location-dot"></i> <span>Itinéraire</span></a>
+        <a href="https://wa.me/213562528806?text=Bonjour%20I%20Smile%2C%20j%27ai%20une%20urgence%20dentaire." target="_blank" rel="noopener noreferrer" class="bottom-bar-btn whatsapp"><i class="fab fa-whatsapp"></i> <span>Urgence</span></a>
+        <a href="https://maps.google.com/maps?ll=36.751156,2.984753&z=15&t=m&hl=en-US&gl=US&mapclient=embed&cid=8693141043634185091" target="_blank" rel="noopener noreferrer" class="bottom-bar-btn maps"><i class="fas fa-location-dot"></i> <span>Itinéraire</span></a>
     </div>
 
     <script src="script.js"></script>
-<!-- زر واتساب عائم (CTA) -->
-<div class="floating-cta-wa" id="waCta">
-    <a href="https://wa.me/213562528806?text=Urgence%20dentaire" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span>Réservez</span>
-    </a>
-</div>
 </body>
 </html>
