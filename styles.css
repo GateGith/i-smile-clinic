@@ -52,6 +52,8 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 50px; font-weight: 600; transition: var(--transition-slow); min-height: 44px; cursor: pointer; border: none; text-align: center; }
 .btn-primary { background: var(--burgundy); color: var(--white); }
 .btn-primary:hover { background: #4a182e; transform: scale(1.02); box-shadow: 0 10px 20px rgba(95,31,60,0.2); }
+.btn-whatsapp { background: var(--wa); color: var(--white); }
+.btn-whatsapp:hover { background: #1ebe57; transform: scale(1.02); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
 .btn-outline-light { border: 1px solid var(--white); color: var(--white); background: transparent; }
 .btn-outline-light:hover { background: var(--white); color: var(--marble-dark); }
 .w-full { width: 100%; justify-content: center; }
@@ -169,42 +171,7 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
     .contact-3d-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .bottom-bar { display: none; }
 }
-/* =========================================
-   FLOATING WHATSAPP CTA BUTTON 
-   ========================================= */
-.floating-cta-wa {
-    position: fixed;
-    right: 20px;
-    bottom: 90px; /* تم رفعه قليلاً حتى لا يغطي القائمة السفلية */
-    z-index: 9999; /* تأكد أنه فوق الخريطة والنموذج */
-    transform: translateX(120px);
-    opacity: 0;
-    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
-}
-.floating-cta-wa a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 65px;
-    height: 65px;
-    background: #25D366; /* لون واتساب الرسمي */
-    border-radius: 50%;
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-    color: white;
-    text-align: center;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 0.4s ease;
-}
-.floating-cta-wa i {
-    font-size: 1.8rem;
-    margin-bottom: 2px;
-}
-.floating-cta-wa a:hover {
-    transform: scale(1.1) rotate(-5deg);
-}
+
 /* =============================================================
    AVIS & TÉMOIGNAGES - VERSION SOIGNÉE ET PROFESSIONNELLE
    ============================================================= */
@@ -406,4 +373,13 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
 .bg-contact-premium .social-links-container p {
     opacity: 0.9;
     font-weight: 500;
+}
+
+/* إضافة فواصل التركيز لإمكانية الوصول */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--teal);
+    outline-offset: 3px;
 }
