@@ -9,7 +9,7 @@
     --insta: #E4405F;
     --tiktok: #000000;
     --wa: #25D366;
-    --email: #EA4335; /* Gmail Red */
+    --email: #EA4335;
 
     --white: #ffffff;
     --black: #121212;
@@ -41,32 +41,15 @@ ul { list-style: none; }
 .text-white { color: var(--white) !important; }
 .text-highlight { color: var(--teal); }
 
-/* Header */
-.header {
-    background: var(--white); padding: 16px 0; position: sticky; top: 0; z-index: 900;
-    border-bottom: 1px solid rgba(26, 58, 52, 0.05);
-}
+/* Header & Logo */
+.header { background: var(--white); padding: 16px 0; position: sticky; top: 0; z-index: 900; border-bottom: 1px solid rgba(26, 58, 52, 0.05); }
 .header-content { display: flex; justify-content: space-between; align-items: center; }
 
-/* Custom Logo with Smile */
-.logo-custom {
-    display: flex; align-items: center; gap: 8px; text-decoration: none;
-}
-.brand-text {
-    font-size: 1.5rem; font-weight: 700; color: var(--teal);
-}
-.trust-smile {
-    width: 60px; height: auto; flex-shrink: 0;
-    animation: smilePulse 3s ease-in-out infinite; /* Animation subtile */
-}
-@keyframes smilePulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-.location-text {
-    font-size: 1.2rem; font-weight: 600; color: var(--marble-green);
-}
+.logo-custom { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.brand-text { font-size: 1.5rem; font-weight: 700; color: var(--teal); }
+.trust-smile { width: 60px; height: auto; flex-shrink: 0; animation: smilePulse 3s ease-in-out infinite; }
+@keyframes smilePulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+.location-text { font-size: 1.2rem; font-weight: 600; color: var(--marble-green); }
 
 .nav-toggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--marble-green); padding: 8px; }
 .nav-menu { display: none; flex-direction: column; align-items: center; gap: 20px; margin-top: 20px; }
@@ -74,19 +57,12 @@ ul { list-style: none; }
 .nav-menu ul { display: flex; flex-direction: column; gap: 15px; text-align: center; font-weight: 500; color: var(--grey-text); }
 .nav-menu a:hover { color: var(--teal); }
 
-/* Vidéo Hero (Instagram Reel) */
-.hero-reel {
-    background: var(--white); padding: 20px 0;
-}
-.reel-container {
-    max-width: 500px; margin: 0 auto; border-radius: 24px; overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-.instagram-embed {
-    display: block; width: 100%; height: 650px; border: 0;
-}
+/* Hero Reel (Instagram) */
+.hero-reel { background: var(--white); padding: 20px 0; }
+.reel-container { max-width: 500px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.instagram-embed { display: block; width: 100%; height: 650px; border: 0; }
 
-/* Hero Slim (Après la Reel) */
+/* Hero Slim */
 .hero-slim { padding: 40px 0; background-image: linear-gradient(to right, var(--white) 40%, var(--stone-cream) 100%); }
 .hero-grid-slim { display: flex; flex-direction: column; gap: 30px; }
 .hero-text { order: 2; text-align: center; }
@@ -96,14 +72,14 @@ ul { list-style: none; }
 .hero-visual-slim { order: 1; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-soft); }
 .hero-visual-slim img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
 
-/* Buttons */
+/* Boutons */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 30px; font-weight: 600; transition: var(--transition); min-height: 44px; border: none; cursor: pointer; }
 .btn-primary { background: var(--burgundy); color: var(--white); }
 .btn-primary:hover { background: #4a182e; transform: scale(1.02); }
 .btn-outline { background: transparent; color: var(--marble-green); border: 1px solid var(--marble-green); }
 .btn-outline:hover { background: var(--marble-green); color: var(--white); }
 
-/* Services avec fond "Outils" */
+/* Services sans images (Icônes SVG en fond) */
 .section-padding { padding: 60px 0; }
 .section-header { margin-bottom: 40px; text-align: center; }
 .section-title { font-size: 2rem; color: var(--marble-green); margin-bottom: 10px; }
@@ -114,25 +90,23 @@ ul { list-style: none; }
     position: relative; padding: 40px 30px; border-radius: 16px; overflow: hidden;
     box-shadow: var(--shadow-soft); transition: var(--transition); color: var(--white);
     min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end;
-}
-.service-card::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to top, rgba(26, 58, 52, 0.95) 0%, rgba(26, 58, 52, 0.4) 100%);
-    z-index: 1;
+    background: var(--marble-green); /* Fond principal sombre */
 }
 .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
 .service-card h3, .service-card p, .service-number { position: relative; z-index: 2; }
+
+/* Icônes de fond SVG */
+.bg-icon {
+    position: absolute; top: -10px; right: -10px;
+    width: 140px; height: 140px; opacity: 0.15; z-index: 0;
+    pointer-events: none; stroke: var(--white) !important;
+}
+
 .service-number { font-size: 3rem; font-weight: 700; margin-bottom: 10px; color: rgba(255,255,255,0.2); }
 .service-card h3 { margin-bottom: 8px; font-size: 1.4rem; }
 .service-card p { font-size: 0.95rem; opacity: 0.9; }
 
-/* Outils dentaires uniques en fond */
-.bg-tool-soins { background-image: url('images/tools-soins.webp'); background-size: cover; background-position: center; }
-.bg-tool-prothese { background-image: url('images/tools-prothese.webp'); background-size: cover; background-position: center; }
-.bg-tool-esthetique { background-image: url('images/tools-esthetique.webp'); background-size: cover; background-position: center; }
-.bg-tool-ortho { background-image: url('images/tools-ortho.webp'); background-size: cover; background-position: center; }
-
-/* Gallery */
+/* Galerie */
 .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .gallery-item { position: relative; border-radius: 16px; overflow: hidden; background: var(--stone-cream); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; aspect-ratio: 4/3; }
@@ -143,7 +117,7 @@ ul { list-style: none; }
 }
 .gallery-item:hover .caption { opacity: 1; }
 
-/* Contact & Form */
+/* Contact */
 .contact-grid { display: flex; flex-direction: column; gap: 40px; margin-bottom: 40px; }
 .contact-info h3, .form-container h3 { margin-bottom: 20px; color: var(--teal); }
 .contact-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
@@ -155,10 +129,7 @@ ul { list-style: none; }
 .contact-email { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
 .social-links-container { margin-top: 25px; }
 .social-links { display: flex; gap: 15px; margin-top: 10px; }
-.social-links a {
-    width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1);
-    display: flex; align-items: center; justify-content: center; transition: var(--transition); font-size: 1.2rem;
-}
+.social-links a { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: var(--transition); font-size: 1.2rem; }
 .social-links a:hover { transform: translateY(-4px); }
 .soc-fb:hover { background: var(--fb); color: white; }
 .soc-ig:hover { background: var(--insta); color: white; }
@@ -178,7 +149,7 @@ ul { list-style: none; }
 .bottom-bar-btn.whatsapp { color: var(--wa); }
 .bottom-bar-btn.maps { color: var(--marble-green); }
 
-/* Media Queries Desktop */
+/* Responsive Desktop */
 @media (min-width: 768px) {
     .nav-toggle { display: none; }
     .nav-menu { display: flex !important; flex-direction: row; gap: 30px; margin-top: 0; }
