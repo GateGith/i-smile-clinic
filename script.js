@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu mobile
+    // 1. Menu Mobile
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     if (navToggle && navMenu) {
@@ -11,9 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Révélation éditoriale au scroll
+    // 2. تأثير 3D بطيء واحترافي للخدمات
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    if (isDesktop) {
+        const cards = document.querySelectorAll('.service-card-3d');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                // حركة ناعمة جداً (2 درجة فقط)
+                const rotateX = ((y - centerY) / centerY) * -2.5;
+                const rotateY = ((x - centerX) / centerX) * 2.5;
+                card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            });
+        });
+    }
+
+    // 3. تأثير الظهور البطيء عند التمرير (Scroll Reveal)
     if ('IntersectionObserver' in window) {
-        const items = document.querySelectorAll('.service-card-geo, .gallery-item, .contact-info, .form-container');
+        const items = document.querySelectorAll('.service-card-3d, .gallery-item-main, .gallery-item-thumb, .contact-info, .form-container');
         items.forEach(el => el.classList.add('is-hidden'));
 
         const observer = new IntersectionObserver((entries) => {
@@ -23,17 +45,40 @@ document.addEventListener('DOMContentLoaded', () => {
                     entry.target.classList.add('is-visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         items.forEach(el => observer.observe(el));
     }
 
-    // Formulaire
+    // 4. زر الواتساب العائم (يتوقف عند التوقف عن التصفح)
+    const waCta = document.getElementById('waCta');
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if(waCta) {
+            waCta.style.opacity = '1';
+            waCta.style.transform = 'translateX(0)';
+        }
+        // إذا توقف المستخدم عن التصفح لمدة 3 ثوانٍ، نخفف التركيز (تطبيق "الحدس" في التصميم)
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (window.innerWidth > 768) {
+                // توهين بسيط عند التوقف، لكن لا نجعله يختفي
+                waCta.style.opacity = '0.7';
+            }
+        }, 3000);
+    });
+    // إعادة الوضوح عند تحريك الماوس فوقه
+    if(waCta) {
+        waCta.addEventListener('mouseenter', () => waCta.style.opacity = '1');
+        waCta.addEventListener('mouseleave', () => waCta.style.opacity = '0.7');
+    }
+
+    // 5. معالج النموذج
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
     if (form && !form.action.includes('YOUR_FORM_ID')) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            status.textContent = 'Envoi en cours...';
+            status.textContent = 'جاري الإرسال...';
             status.className = 'form-status';
             try {
                 const res = await fetch(form.action, {
@@ -41,15 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
                 });
                 if (res.ok) {
-                    status.textContent = '✅ Demande envoyée !';
+                    status.textContent = '✅ تم إرسال الطلب بنجاح! سنتصل بك قريباً.';
                     status.className = 'form-status success';
                     form.reset();
                 } else {
-                    status.textContent = '❌ Erreur.';
+                    status.textContent = '❌ حدث خطأ أثناء الإرسال.';
                     status.className = 'form-status error';
                 }
             } catch { 
-                status.textContent = '❌ Erreur réseau.'; 
+                status.textContent = '❌ خطأ في الشبكة. يرجى المحاولة لاحقاً.'; 
                 status.className = 'form-status error'; 
             }
         });
