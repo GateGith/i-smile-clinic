@@ -205,3 +205,90 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
 .floating-cta-wa a:hover {
     transform: scale(1.1) rotate(-5deg);
 }
+/* =============================================================
+           NEW SECTION: AVIS & TÉMOIGNAGES
+============================================================= */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+.review-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow var(--transition-slow), transform var(--transition-slow);
+    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+}
+.review-card:hover {
+    transform: perspective(1200px) rotateX(-2deg) rotateY(4deg) translateZ(10px);
+    box-shadow: var(--shadow-hover);
+}
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.reviewer-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--marble-green);
+}
+.review-date {
+    font-size: 0.85rem;
+    color: var(--grey-text);
+}
+.stars {
+    color: #FFB400; /* لون ذهبي للتقييم */
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    display: flex;
+}
+.review-text {
+    color: var(--grey-text);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    padding-top: 15px;
+    font-size: 0.8rem;
+    color: #888;
+}
+.translated-by {
+    font-style: italic;
+}
+.like-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+}
+.like-count i {
+    font-size: 1rem;
+    transition: var(--transition);
+}
+.like-count i:hover {
+    color: #e74c3c; /* لون احمر عند التفاعل مع القلب */
+}
+
+/* Responsive Desktop for Reviews */
+@media (min-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr); /* بطاقتين بجانب بعضهما */
+        gap: 30px;
+    }
+}
+/* استخدم 4 أعمدة للشاشات الكبيرة جداً إذا أردت، لكن 2 أكثر قراءة */
+@media (min-width: 1200px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
