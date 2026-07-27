@@ -206,12 +206,12 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
     transform: scale(1.1) rotate(-5deg);
 }
 /* =============================================================
-   AVIS & TÉMOIGNAGES (تصميم البطاقات المربعة الآمن)
-============================================================= */
+   AVIS & TÉMOIGNAGES - Version Développée
+   ============================================================= */
 .reviews-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 25px;
 }
 
 .review-card {
@@ -223,20 +223,42 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
     transition: all 0.4s ease;
 }
 .review-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
 }
 
 .review-header {
-    display: flex;
-    flex-direction: column;
     margin-bottom: 12px;
 }
+
 .reviewer-info {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    gap: 15px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* Couleurs personnalisées basées sur les captures Google Maps */
+.av-s { background: #1e68b3; } /* Bleu */
+.av-o { background: #e96d3d; } /* Orange */
+.av-k { background: #c2542b; } /* Marron/Orange foncé */
+.av-z { background: #4b4b4b; } /* Gris foncé (ou image si vous en avez une) */
+
+.reviewer-meta {
+    display: flex;
+    flex-direction: column;
 }
 .reviewer-name {
     font-size: 1.1rem;
@@ -247,33 +269,33 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; }
     font-size: 0.85rem;
     color: var(--grey-text);
 }
+
 .stars {
     color: #FFB400;
     font-size: 1.1rem;
     letter-spacing: 2px;
-    margin-top: 4px;
+    margin-bottom: 12px;
 }
 
 .review-text {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--grey-text);
     margin-bottom: 16px;
 }
 
 .review-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding-top: 15px;
     border-top: 1px solid rgba(0,0,0,0.05);
-    font-size: 0.8rem;
-    color: #888;
+    font-size: 0.9rem;
+    color: #555;
 }
-.translated-by { font-style: italic; }
-.like-count { display: flex; align-items: center; gap: 6px; color: #555; }
-.like-count i { font-size: 1rem; }
-.like-count i:hover { color: #e74c3c; }
+.like-count { display: flex; align-items: center; gap: 8px; }
+.like-count i { font-size: 1.1rem; transition: 0.3s; }
+.like-count i:hover { color: #e74c3c; transform: scale(1.1); }
 
 @media (min-width: 768px) {
     .reviews-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
