@@ -124,28 +124,30 @@ if(waCta) {
         waCta.addEventListener('mouseleave', () => waCta.style.opacity = '0.7');
     }
 }
-// 6. Toggle Read More for Reviews (لتوسيع النص عند الضغط)
+// زر "Lire la suite" للتقييمات
 const reviewTexts = document.querySelectorAll('.review-text');
 reviewTexts.forEach(text => {
-    const textContent = text.innerText;
-    if (textContent.length > 150) {
-        const shortText = textContent.substring(0, 150) + '...';
-        const moreBtn = document.createElement('button');
+    let textContent = text.innerText;
+    if (textContent.length > 130) {
+        let shortText = textContent.substring(0, 130) + '...';
+        let moreBtn = document.createElement('button');
         moreBtn.innerText = 'Lire la suite';
-        moreBtn.className = 'btn-link';
-        moreBtn.style.cssText = 'margin-top: 10px; cursor: pointer; display: inline-block; background: none; border: none; padding: 0;';
-        
+        moreBtn.className = 'read-more-btn';
+
         let isExpanded = false;
         moreBtn.addEventListener('click', () => {
             isExpanded = !isExpanded;
             if (isExpanded) {
+                text.innerHTML = textContent; // استخدام innerHTML لأنه قد يحتوي على الزر نفسه في النسخة الممتدة؟
+                // لا، يجب تنظيفه.
                 text.innerText = textContent;
+                text.appendChild(moreBtn);
                 moreBtn.innerText = 'Réduire';
             } else {
                 text.innerText = shortText;
+                text.appendChild(moreBtn);
                 moreBtn.innerText = 'Lire la suite';
             }
-            text.appendChild(moreBtn);
         });
         
         text.innerText = shortText;
