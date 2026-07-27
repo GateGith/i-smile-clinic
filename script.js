@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Menu mobile
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
             const isOpen = navMenu.classList.toggle('active');
@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Reveal robuste
+    // Révélation au scroll (sans échec si JS crash)
     if ('IntersectionObserver' in window) {
-        const revealItems = document.querySelectorAll('.service-card, .gallery-item, .contact-info, .form-container');
-        revealItems.forEach(el => el.classList.add('is-hidden'));
+        const items = document.querySelectorAll('.service-card-blueprint, .gallery-item, .contact-info, .form-container');
+        items.forEach(el => el.classList.add('is-hidden'));
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -23,36 +23,32 @@ document.addEventListener('DOMContentLoaded', () => {
                     entry.target.classList.add('is-visible');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        revealItems.forEach(el => observer.observe(el));
+        }, { threshold: 0.1 });
+        items.forEach(el => observer.observe(el));
     }
 
-    // Gestion Formulaire
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatus');
-    if (contactForm && !contactForm.action.includes('YOUR_FORM_ID')) {
-        contactForm.addEventListener('submit', async (e) => {
+    // Formulaire (Remplacez l'ID dans le HTML)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    if (form && !form.action.includes('YOUR_FORM_ID')) {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            formStatus.textContent = 'Envoi en cours...';
-            formStatus.className = 'form-status';
-            const data = Object.fromEntries(new FormData(contactForm).entries());
+            status.textContent = 'Envoi en cours...';
+            status.className = 'form-status';
             try {
-                const response = await fetch(contactForm.action, {
+                const res = await fetch(form.action, {
                     method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
                 });
-                if (response.ok) {
-                    formStatus.textContent = '✅ Demande envoyée !';
-                    formStatus.className = 'form-status success';
-                    contactForm.reset();
+                if (res.ok) {
+                    status.textContent = '✅ Demande envoyée !';
+                    status.className = 'form-status success';
+                    form.reset();
                 } else {
-                    formStatus.textContent = '❌ Erreur, veuillez réessayer.';
-                    formStatus.className = 'form-status error';
+                    status.textContent = '❌ Erreur.';
+                    status.className = 'form-status error';
                 }
-            } catch (error) {
-                formStatus.textContent = '❌ Erreur réseau.';
-                formStatus.className = 'form-status error';
-            }
+            } catch { status.textContent = '❌ Erreur réseau.'; status.className = 'form-status error'; }
         });
     }
 });
