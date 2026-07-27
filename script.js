@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. تأثير 3D بطيء واحترافي للخدمات
+    // 2. تأثير 3D
     const isDesktop = window.matchMedia('(min-width: 768px)').matches;
     if (isDesktop) {
         const cards = document.querySelectorAll('.service-card-3d');
@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                // حركة ناعمة جداً (2 درجة فقط)
                 const rotateX = ((y - centerY) / centerY) * -2.5;
                 const rotateY = ((x - centerX) / centerX) * 2.5;
                 card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. تأثير الظهور البطيء عند التمرير (Scroll Reveal)
+    // 3. Scroll Reveal
     if ('IntersectionObserver' in window) {
         const items = document.querySelectorAll('.service-card-3d, .gallery-item-main, .gallery-item-thumb, .contact-info, .form-container');
         items.forEach(el => el.classList.add('is-hidden'));
@@ -49,25 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(el => observer.observe(el));
     }
 
-    // 4. زر الواتساب العائم (يتوقف عند التوقف عن التصفح)
+    // 4. زر الواتساب العائم
     const waCta = document.getElementById('waCta');
     let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        if(waCta) {
+    if(waCta) {
+        window.addEventListener('scroll', () => {
             waCta.style.opacity = '1';
             waCta.style.transform = 'translateX(0)';
-        }
-        // إذا توقف المستخدم عن التصفح لمدة 3 ثوانٍ، نخفف التركيز (تطبيق "الحدس" في التصميم)
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            if (window.innerWidth > 768) {
-                // توهين بسيط عند التوقف، لكن لا نجعله يختفي
-                waCta.style.opacity = '0.7';
-            }
-        }, 3000);
-    });
-    // إعادة الوضوح عند تحريك الماوس فوقه
-    if(waCta) {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (window.innerWidth > 768) {
+                    waCta.style.opacity = '0.7';
+                }
+            }, 3000);
+        });
         waCta.addEventListener('mouseenter', () => waCta.style.opacity = '1');
         waCta.addEventListener('mouseleave', () => waCta.style.opacity = '0.7');
     }
