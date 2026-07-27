@@ -93,64 +93,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
-// 4. زر الواتساب العائم (حركة ناعمة عند التصفح)
-const waCta = document.getElementById('waCta');
-let scrollTimeout;
-if(waCta) {
-    // إظهار الزر فوراً عند فتح الصفحة
-    setTimeout(() => {
-        waCta.style.transform = 'translateX(0)';
-        waCta.style.opacity = '1';
-    }, 1000);
 
-    // عند التمرير، يظهر بشكل واضح
-    window.addEventListener('scroll', () => {
-        if(waCta) {
-            waCta.style.transform = 'translateX(0)';
-            waCta.style.opacity = '1';
-            clearTimeout(scrollTimeout);
-            // إذا توقف المستخدم عن التمرير لمدة 3 ثوانٍ، يخفت قليلاً لعدم إزعاج العين
-            scrollTimeout = setTimeout(() => {
-                if (window.innerWidth > 768) {
-                    waCta.style.opacity = '0.7';
+    // 6. زر "Lire la suite" للتقييمات (نسخة نظيفة)
+    const reviewTexts = document.querySelectorAll('.review-text');
+    reviewTexts.forEach(text => {
+        let textContent = text.innerText;
+        if (textContent.length > 130) {
+            let shortText = textContent.substring(0, 130) + '...';
+            let moreBtn = document.createElement('button');
+            moreBtn.innerText = 'Lire la suite';
+            moreBtn.className = 'read-more-btn';
+
+            let isExpanded = false;
+            moreBtn.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+                if (isExpanded) {
+                    text.innerText = textContent;
+                    text.appendChild(moreBtn);
+                    moreBtn.innerText = 'Réduire';
+                } else {
+                    text.innerText = shortText;
+                    text.appendChild(moreBtn);
+                    moreBtn.innerText = 'Lire la suite';
                 }
-            }, 3000);
+            });
+            
+            text.innerText = shortText;
+            text.appendChild(moreBtn);
         }
     });
-    // عند تحريك الماوس فوقه، يصبح واضحاً
-    if(waCta) {
-        waCta.addEventListener('mouseenter', () => waCta.style.opacity = '1');
-        waCta.addEventListener('mouseleave', () => waCta.style.opacity = '0.7');
-    }
-}
-// زر "Lire la suite" للتقييمات
-const reviewTexts = document.querySelectorAll('.review-text');
-reviewTexts.forEach(text => {
-    let textContent = text.innerText;
-    if (textContent.length > 130) {
-        let shortText = textContent.substring(0, 130) + '...';
-        let moreBtn = document.createElement('button');
-        moreBtn.innerText = 'Lire la suite';
-        moreBtn.className = 'read-more-btn';
-
-        let isExpanded = false;
-        moreBtn.addEventListener('click', () => {
-            isExpanded = !isExpanded;
-            if (isExpanded) {
-                text.innerHTML = textContent; // استخدام innerHTML لأنه قد يحتوي على الزر نفسه في النسخة الممتدة؟
-                // لا، يجب تنظيفه.
-                text.innerText = textContent;
-                text.appendChild(moreBtn);
-                moreBtn.innerText = 'Réduire';
-            } else {
-                text.innerText = shortText;
-                text.appendChild(moreBtn);
-                moreBtn.innerText = 'Lire la suite';
-            }
-        });
-        
-        text.innerText = shortText;
-        text.appendChild(moreBtn);
-    }
 });
