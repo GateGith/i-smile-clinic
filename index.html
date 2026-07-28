@@ -9,6 +9,28 @@
     <meta property="og:description" content="Clinique dentaire 24h/24 à Dely Ibrahim. Urgences, Soins, Orthodontie, Implants & Esthétique.">
     <meta property="og:image" content="images/reception-arch.webp">
     <meta name="theme-color" content="#1a3a34">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "I Smile Dental Clinic",
+      "image": "images/reception-arch.webp",
+      "url": "#top",
+      "telephone": "+213540992708",
+      "email": "draibi411@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dely Ibrahim",
+        "addressRegion": "Alger",
+        "addressCountry": "DZ"
+      },
+      "sameAs": [
+        "https://www.facebook.com/share/1DC7hRPnL6/",
+        "https://www.instagram.com/i_smile.dental_clinic",
+        "https://www.tiktok.com/@ismile3875"
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -24,7 +46,7 @@
             <i class="fas fa-bars"></i>
         </button>
 
-        <nav class="nav-menu" id="navMenu">
+        <nav class="nav-menu" id="navMenu" aria-label="Navigation principale">
             <ul>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">La Clinique</a></li>
@@ -42,23 +64,25 @@
             <div class="video-container">
                 <video autoplay muted loop playsinline poster="images/reception-arch.webp" class="bg-video" aria-label="Présentation de la clinique I Smile">
                     <source src="videos/clinic-reel.mp4" type="video/mp4">
-                    <div class="video-fallback"><img src="images/reception-arch.webp" alt="Clinic"></div>
                 </video>
+                <div class="video-fallback" aria-hidden="true">
+                    <img src="images/reception-arch.webp" alt="">
+                </div>
                 <div class="video-overlay"></div>
                 
                 <div class="container video-content">
                     <span class="hero-badge"><i class="fas fa-bolt"></i> Urgences 24h/24</span>
 
-<div class="doctor-mini">
-    <img src="images/dr-aibi.webp" alt="Dr. Aibi, dentiste de I Smile" class="doctor-mini-avatar">
-</div>
+                    <div class="doctor-mini">
+                        <img src="images/dr-aibi.webp" alt="Dr. Aibi, dentiste de I Smile" class="doctor-mini-avatar">
+                    </div>
 
-<h1 class="text-white">
-    <span class="brand-highlight">I Smile</span><br>
-    <span class="text-architectural-light">Dely Ibrahim</span>
-</h1>
+                    <h1 class="text-white">
+                        <span class="brand-highlight">I Smile</span><br>
+                        <span class="text-architectural-light">Dely Ibrahim</span>
+                    </h1>
 
-<p class="hero-subtitle text-white">Soins d'excellence, orthodontie & esthétique. Prise en charge immédiate.</p>
+                    <p class="hero-subtitle text-white">Soins d'excellence, orthodontie & esthétique. Prise en charge immédiate.</p>
                     <div class="hero-actions">
                         <a href="tel:+213540992708" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Appeler maintenant</a>
                         <a href="https://wa.me/213562528806?text=Bonjour%20I%20Smile%2C%20j%27ai%20une%20urgence%20dentaire." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -268,9 +292,10 @@
                         <h3>Demande de consultation</h3>
                         <p class="form-desc">Laissez vos coordonnées, nous vous recontacterons immédiatement.</p>
                         <form action="https://formspree.io/f/xqerweyb" method="POST" id="contactForm">
-                            <div class="form-group"><input type="text" name="name" placeholder="Nom et prénom" required></div>
-                            <div class="form-group"><input type="tel" name="phone" placeholder="Numéro de téléphone" required></div>
-                            <div class="form-group"><input type="email" name="email" placeholder="Email (optionnel)"></div>
+                            <input type="text" name="_gotcha" class="form-gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <div class="form-group"><input type="text" name="name" placeholder="Nom et prénom" required autocomplete="name"></div>
+                            <div class="form-group"><input type="tel" name="phone" placeholder="Numéro de téléphone" required autocomplete="tel"></div>
+                            <div class="form-group"><input type="email" name="email" placeholder="Email (optionnel)" autocomplete="email"></div>
                             <div class="form-group"><textarea name="message" rows="3" placeholder="Motif du rendez-vous (sans informations médicales sensibles)"></textarea></div>
                             <button type="submit" class="btn btn-primary w-full">Envoyer la demande</button>
                             <div id="formStatus" class="form-status" aria-live="polite"></div>
@@ -282,7 +307,7 @@
     </main>
 
     <div class="floating-cta-wa" id="waCta">
-        <a href="https://wa.me/213562528806?text=Bonjour%20I%20Smile%2C%20j%27ai%20une%20urgence%20dentaire." target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/213562528806?text=Bonjour%20I%20Smile%2C%20j%27ai%20une%20urgence%20dentaire." target="_blank" rel="noopener noreferrer" aria-label="Contacter I Smile sur WhatsApp">
             <i class="fab fa-whatsapp"></i>
             <span>Réservez</span>
         </a>
