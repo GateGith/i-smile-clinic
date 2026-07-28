@@ -28,17 +28,23 @@ ul { list-style: none; }
 
 a { text-decoration: none; color: inherit; }
 
-.header { background: var(--white); padding: 16px 0; position: sticky; top: 0; z-index: 900; box-shadow: 0 2px 20px rgba(0,0,0,0.03); }
+.header { background: #ffffff; position: relative; width: 100%; z-index: 1000; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02); transform: translateZ(0); }
 
-.header-content { display: flex; justify-content: space-between; align-items: center; }
+.header-content { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; height: 80px; max-width: 1200px; margin: 0 auto; position: relative; }
+
+.header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #2bc49b, transparent); opacity: 0.4; border-radius: 0 0 4px 4px; }
+
+.main-logo-img { height: 50px; width: auto; display: block; object-fit: contain; transition: transform 0.3s ease; }
+
+.main-logo-img:hover { transform: scale(1.02); }
+
+.nav-toggle { background: transparent; border: none; cursor: pointer; font-size: 1.6rem; color: #1a2e2a; padding: 8px; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
+
+.nav-toggle:active { transform: scale(0.9); }
 
 .logo-custom { display: flex; align-items: center; gap: 10px; }
 
 .brand-text { font-size: 1.8rem; font-weight: 800; color: var(--teal); letter-spacing: -1px; }
-
-.main-logo-img { max-width: 180px; height: auto; display: block; margin: 0 auto; }
-
-.nav-toggle { background: none; border: none; font-size: 1.6rem; color: var(--marble-green); padding: 8px; cursor: pointer; }
 
 .nav-menu { display: none; flex-direction: column; align-items: center; gap: 25px; margin-top: 25px; }
 
