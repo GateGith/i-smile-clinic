@@ -36,10 +36,7 @@ a { text-decoration: none; color: inherit; }
 
 .brand-text { font-size: 1.8rem; font-weight: 800; color: var(--teal); letter-spacing: -1px; }
 
-.trust-tooth { width: 65px; height: 65px; flex-shrink: 0; animation: smilePulse 4s ease-in-out infinite: filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1)); }
-
-@keyframes smilePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-
+.trust-tooth { width: 70px; height: 70px; flex-shrink: 0; }
 .location-text { font-size: 1.3rem; font-weight: 600; color: var(--marble-green); letter-spacing: 1px; }
 
 .nav-toggle { background: none; border: none; font-size: 1.6rem; color: var(--marble-green); padding: 8px; cursor: pointer; }
