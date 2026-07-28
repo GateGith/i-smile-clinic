@@ -186,9 +186,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-    .service-card-3d, .gallery-item-main, .gallery-item-thumb { transform: none !important; }
-    .is-hidden { opacity: 1 !important; transform: none !important; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .service-card-3d, .gallery-item-main, .gallery-item-thumb {
+        transform: none !important;
+    }
+    .is-hidden {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .floating-cta-wa {
+        animation: none !important;
+    }
 }
 
 .is-hidden { opacity: 0; transform: translateY(24px); }
